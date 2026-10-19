@@ -39,7 +39,41 @@
       overflow-x: hidden;
     }
 
-    /* BARRA DE NAVEGACIÓN Y LOGO */
+    /* ZONA SUPERIOR: LOGO CENTRADO Y PROTAGONISTA */
+    .top-brand-wrapper {
+      width: 100%;
+      background-color: #050608;
+      border-bottom: 1px solid rgba(0, 180, 255, 0.12);
+      padding: 1.8rem 1rem 1.4rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .top-brand-link {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .top-brand-logo {
+      width: 160px;
+      height: 160px;
+      max-width: 160px;
+      max-height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(0, 180, 255, 0.55));
+      transition: transform 0.3s ease, filter 0.3s ease;
+      display: block;
+    }
+
+    .top-brand-logo:hover {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 26px rgba(0, 180, 255, 0.85));
+    }
+
+    /* BARRA DE NAVEGACIÓN PEGADA DEBAJO DEL LOGO */
     header {
       position: sticky;
       top: 0;
@@ -50,47 +84,29 @@
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 0.5rem 1.5rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      line-height: 0;
-    }
-
-    .brand img {
-      height: 70px;
-      width: auto;
-      max-width: 220px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 10px rgba(0, 180, 255, 0.5));
-      transition: transform 0.3s ease, filter 0.3s ease;
-      display: block;
-    }
-
-    .brand img:hover {
-      transform: scale(1.04);
-      filter: drop-shadow(0 0 18px rgba(0, 180, 255, 0.8));
+      padding: 0.85rem 1.5rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--gris-metalico);
       text-decoration: none;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       transition: color 0.3s ease;
     }
 
@@ -101,29 +117,29 @@
     .btn-nav {
       background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-electrico));
       color: #FFFFFF !important;
-      padding: 0.6rem 1.3rem;
+      padding: 0.55rem 1.4rem;
       border-radius: 6px;
-      font-weight: 600 !important;
-      box-shadow: 0 0 12px rgba(0, 180, 255, 0.3);
+      font-weight: 700 !important;
+      box-shadow: 0 0 14px rgba(0, 180, 255, 0.3);
       transition: transform 0.2s, box-shadow 0.2s !important;
     }
 
     .btn-nav:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 18px rgba(0, 180, 255, 0.55);
+      box-shadow: 0 0 20px rgba(0, 180, 255, 0.6);
     }
 
     /* HERO SECTION CON BANNER */
     .hero {
       position: relative;
-      min-height: 85vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 1.5rem;
+      padding: 4.5rem 1.5rem;
       background-image: 
-        radial-gradient(circle at center, rgba(10, 10, 10, 0.65) 20%, var(--negro-fondo) 90%),
+        radial-gradient(circle at center, rgba(10, 10, 10, 0.68) 20%, var(--negro-fondo) 92%),
         url('./banner_lk.png');
       background-size: cover;
       background-position: center;
@@ -492,26 +508,48 @@
 
     /* RESPONSIVE */
     @media (max-width: 850px) {
-      .brand img { height: 55px; }
-      .hero h1 { font-size: 2rem; }
-      .contact-container, .modality-box { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .badges-bar { margin-top: 1rem; }
+      .top-brand-logo { 
+        width: 130px; 
+        height: 130px; 
+      }
+      .nav-links { 
+        gap: 1rem; 
+      }
+      .nav-links a { 
+        font-size: 0.85rem; 
+      }
+      .btn-nav { 
+        padding: 0.45rem 1rem; 
+      }
+      .hero h1 { 
+        font-size: 2rem; 
+      }
+      .contact-container, .modality-box { 
+        grid-template-columns: 1fr; 
+      }
+      .badges-bar { 
+        margin-top: 1rem; 
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- BARRA DE NAVEGACIÓN -->
+  <!-- ZONA SUPERIOR: LOGO CENTRADO (160px) -->
+  <div class="top-brand-wrapper">
+    <a href="#" class="top-brand-link" title="LK Informática">
+      <img 
+        src="./logo_lk.png" 
+        alt="Logo LK Informática" 
+        class="top-brand-logo"
+        loading="eager"
+      >
+    </a>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN UBICADA DIRECTAMENTE DEBAJO -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand" title="LK Informática">
-        <img 
-          src="./logo_lk.png" 
-          alt="LK Informática" 
-          loading="eager"
-        >
-      </a>
       <nav class="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#modalidad">Modalidad</a>
@@ -657,12 +695,10 @@
         </ul>
       </div>
 
-      <!-- Formulario con Web3Forms (100% Gratuito) -->
-      <form action="https://api.web3forms.com/submit" method="POST">
-        <!-- Reemplaza con tu Access Key gratuita de web3forms.com si deseas recibir los correos -->
-        <input type="hidden" name="access_key" value="54f06147-7df8-45cf-ba11-9444abd2521b">
-        <input type="hidden" name="subject" value="Nueva consulta de reparación - LK Informática">
-        <input type="hidden" name="from_name" value="Web LK Informática">
+      <!-- Formulario con FormSubmit (Envío directo a Gmail sin necesidad de API Key) -->
+      <form action="https://formsubmit.co/lkreparacionesinformaticas@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nueva consulta de reparación - LK Informática">
+        <input type="hidden" name="_captcha" value="false">
 
         <div class="form-group">
           <label for="nombre">Nombre y Apellido</label>
@@ -704,7 +740,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 LK Informática — Tecnología en Buenas Manos. Victoria, Entre Ríos.</p>
+    <p>© 2026 LK Informática — Tecnología en buenas manos. Victoria, Entre Ríos.</p>
   </footer>
 
 </body>
